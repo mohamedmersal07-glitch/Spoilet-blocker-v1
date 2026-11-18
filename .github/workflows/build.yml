@@ -15,6 +15,10 @@ jobs:
 
       - name: Extract project
         run: unzip -o SpoilerBlocker_APK_Build_Ready.zip
+        
+      - name: Fix accessibility XML
+        run: sed -i 's/android:flags=/android:accessibilityFlags=/g' SpoilerBlocker/app/src/main/res/xml/spoiler_accessibility.xml
+
 
       - uses: actions/setup-java@v4
         with:
